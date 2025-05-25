@@ -1,0 +1,160 @@
+/* Animation styles for Watchmate */
+
+/* Loading container */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(15, 15, 26, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Loading character container */
+.loading-character {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Character animations */
+.character {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Movie character - Film reel spinning */
+.character-movie {
+    background-image: url('/static/img/movie-character.svg');
+    animation: spin 2s infinite linear;
+}
+
+/* Anime character - Bouncing anime character */
+.character-anime {
+    background-image: url('/static/img/anime-character.svg');
+    animation: bounce 1s infinite alternate ease-in-out;
+}
+
+/* Series character - TV with pulsing effect */
+.character-series {
+    background-image: url('/static/img/series-character.svg');
+    animation: pulse 1.5s infinite alternate ease-in-out;
+}
+
+/* Default character */
+.character-default {
+    background-image: url('/static/img/default-character.svg');
+    animation: float 2s infinite alternate ease-in-out;
+}
+
+/* Loading text */
+.loading-text {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 77, 125, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--primary-color);
+    animation: spin 1s infinite linear;
+}
+
+/* Loading dots animation */
+.loading-dots::after {
+    content: '';
+    animation: dots 1.5s infinite;
+}
+
+/* Animation keyframes */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.1); opacity: 1; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0); }
+    100% { transform: translateY(-10px) rotate(5deg); }
+}
+
+@keyframes dots {
+    0%, 20% { content: '.'; }
+    40% { content: '..'; }
+    60%, 100% { content: '...'; }
+}
+
+/* Page transition effects */
+.page-transition {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Add animation to cards */
+.watchlist-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.watchlist-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Filter button animations */
+.filter-btn {
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-3px);
+}
+
+.filter-btn.active {
+    animation: activePulse 2s infinite;
+}
+
+@keyframes activePulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 77, 125, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 77, 125, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 77, 125, 0); }
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Default Character</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Popcorn Bucket -->
+        <path d="M60,100 L140,100 L130,170 L70,170 Z" fill="#eee" />
+        <path d="M65,100 L135,100 L130,110 L70,110 Z" fill="#ff4d7d" stroke="#ff4d7d" stroke-width="2" />
+        
+        <!-- Popcorn -->
+        <circle cx="80" cy="80" r="15" fill="#ffcc44" />
+        <circle cx="100" cy="70" r="15" fill="#ffcc44" />
+        <circle cx="120" cy="80" r="15" fill="#ffcc44" />
+        <circle cx="85" cy="60" r="15" fill="#ffcc44" />
+        <circle cx="115" cy="60" r="15" fill="#ffcc44" />
+        
+        <!-- Face -->
+        <circle cx="85" cy="85" r="5" fill="#333" />
+        <circle cx="115" cy="85" r="5" fill="#333" />
+        <path d="M90,100 Q100,110 110,100" stroke="#333" stroke-width="2" fill="none" />
+        
+        <!-- Bucket pattern -->
+        <line x1="75" y1="130" x2="85" y2="130" stroke="#ff4d7d" stroke-width="2" />
+        <line x1="95" y1="130" x2="105" y2="130" stroke="#ff4d7d" stroke-width="2" />
+        <line x1="115" y1="130" x2="125" y2="130" stroke="#ff4d7d" stroke-width="2" />
+        
+        <line x1="80" y1="150" x2="90" y2="150" stroke="#ff4d7d" stroke-width="2" />
+        <line x1="100" y1="150" x2="110" y2="150" stroke="#ff4d7d" stroke-width="2" />
+        <line x1="120" y1="150" x2="125" y2="150" stroke="#ff4d7d" stroke-width="2" />
+    </g>
+</svg>

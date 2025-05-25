@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="200px" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <title>Movie Character</title>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <!-- Film reel -->
+        <circle cx="100" cy="100" r="70" fill="#333" />
+        <circle cx="100" cy="100" r="60" fill="#222" />
+        
+        <!-- Film reel holes -->
+        <circle cx="100" cy="30" r="10" fill="#444" />
+        <circle cx="155" cy="60" r="10" fill="#444" />
+        <circle cx="155" cy="140" r="10" fill="#444" />
+        <circle cx="100" cy="170" r="10" fill="#444" />
+        <circle cx="45" cy="140" r="10" fill="#444" />
+        <circle cx="45" cy="60" r="10" fill="#444" />
+        
+        <!-- Center hole -->
+        <circle cx="100" cy="100" r="15" fill="#111" />
+        <circle cx="100" cy="100" r="10" fill="#ff4d7d" />
+        
+        <!-- Face -->
+        <circle cx="100" cy="100" r="30" fill="transparent" stroke="#ff4d7d" stroke-width="2" />
+        <circle cx="88" cy="90" r="3" fill="#ff4d7d" />
+        <circle cx="112" cy="90" r="3" fill="#ff4d7d" />
+        <path d="M90,110 Q100,120 110,110" stroke="#ff4d7d" stroke-width="2" fill="none" />
+    </g>
+</svg>

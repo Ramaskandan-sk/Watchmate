@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WatchMate - Your Ultimate Anime Destination</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><i class="fas fa-skull"></i> WatchMate</a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Anime</a></li>
+                <li><a href="#">Manga</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Movies</a></li>
+                <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="{{ url_for('login') }}" class="btn btn-login">Login</a>
+            <a href="{{ url_for('signup') }}" class="btn btn-signup">Sign Up</a>
+        </div>
+    </header>
+    
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="{{ url_for('static', filename='img/back.jpg') }}" alt="Anime Background" class="hero-bg">
+        <div class="hero-content">
+            <marquee behavior="scroll" direction="left">🔥Trending : One Piece , Solo Leveling S-2 , Captain America Brave New World , Bramhayugum etc.</marquee>
+            <h1>Discover Your Next Favorite Anime</h1>
+            <p>Join our community of Anime , Movies , Web Series  , and explore thousands of titles, from classic series to the latest releases. Track your progress, get recommendations, and never miss an episode.</p>
+            <div class="hero-buttons">
+                <a href="{{ url_for('login') }}" class="btn-primary"><i class="fas fa-play"></i> Start Watching</a>
+                <a href="#" class="btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+    <div id="warning-message">⚠ Please login or sign up first to access this feature.</div>
+
+    <!-- Trending Anime Section -->
+    <section class="trending">
+        <div class="section-title">
+            <h2>Trending This Week</h2>
+            <a href="#">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="anime-grid">
+            <!-- Anime Card 1 -->
+            <div class="anime-card">
+                <span class="badge">New</span>
+                <img src="{{ url_for('static', filename='img/dl.jpg') }}" alt="">
+                <div class="anime-info">
+                    <h3>Demon Slayer: Kimetsu no Yaiba</h3>
+                    <div class="meta">
+                        <span>TV Series</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.2</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Anime Card 2 -->
+            <div class="anime-card">
+                <img src="{{ url_for('static', filename='img/aot.jpg') }}" alt="Anime Title">
+                <div class="anime-info">
+                    <h3>Attack on Titan Final Season</h3>
+                    <div class="meta">
+                        <span>TV Series</span>
+                        <span class="rating"><i class="fas fa-star"></i> 9.5</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 3 -->
+            <div class="anime-card">
+                <span class="badge">Popular</span>
+                <img src="{{ url_for('static', filename='img/j.jpg') }}" alt="Anime Title">
+                <div class="anime-info">
+                    <h3>Jujutsu Kaisen</h3>
+                    <div class="meta">
+                        <span>TV Series</span>
+                        <span class="rating"><i class="fas fa-star"></i> 8.9</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Anime Card 4 -->
+            <div class="anime-card">
+                <img src="{{ url_for('static', filename='img/hero.jpg') }}" alt="Anime Title">
+                <div class="anime-info">
+                    <h3>My Hero Academia Season 6</h3>
+                    <div class="meta">
+                        <span>TV Series</span>
+                        <span class="rating"><i class="fas fa-star"></i> 8.7</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="section-title">
+            <h2>Browse Categories</h2>
+            <a href="#">View All <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="category-grid">
+            <div class="category-card">
+                <i class="fas fa-ghost"></i>
+                <h3>Supernatural</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-space-shuttle"></i>
+                <h3>Sci-Fi</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-heart"></i>
+                <h3>Romance</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-laugh"></i>
+                <h3>Comedy</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-dragon"></i>
+                <h3>Fantasy</h3>
+            </div>
+            <div class="category-card">
+                <i class="fas fa-fist-raised"></i>
+                <h3>Action</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Watchmate</h3>
+                <p>Your ultimate destination for anime streaming, community, and news.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="#">Popular Anime</a></li>
+                    <li><a href="#">New Releases</a></li>
+                    <li><a href="#">Upcoming</a></li>
+                    <li><a href="#">Genres</a></li>
+                    <li><a href="#">Seasonal Anime</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 WatchMate. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth hero fade
+        document.addEventListener('DOMContentLoaded', function () {
+            const heroContent = document.querySelector('.hero-content');
+            heroContent.style.opacity = '0';
+            heroContent.style.transform = 'translateY(20px)';
+
+            setTimeout(() => {
+                heroContent.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                heroContent.style.opacity = '1';
+                heroContent.style.transform = 'translateY(0)';
+            }, 300);
+        });
+
+        // Show warning message on nav click
+        const linksToWarn = document.querySelectorAll('nav ul li a');
+        const warningMessage = document.getElementById('warning-message');
+
+        linksToWarn.forEach(link => {
+            const text = link.textContent.trim().toLowerCase();
+            if (['home', 'anime', 'manga', 'news'].includes(text)) {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    warningMessage.style.display = 'block';
+                    setTimeout(() => {
+                        warningMessage.style.display = 'none';
+                    }, 3000);
+                });
+            }
+        });
+    </script>
+    
+</body>
+</html>

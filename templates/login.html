@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block title %}Login - Watchmate{% endblock %}
+
+{% block content %}
+<div class="container auth-container">
+    <a href="{{ url_for('index') }}" class="back-home">
+        <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+    
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h2 class="mb-0"><i class="fas fa-sign-in-alt me-2"></i>Login</h2>
+        </div>
+        <div class="card-body">
+            {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+            {% endif %}
+            
+            <form method="POST" action="{{ url_for('login') }}" class="needs-validation" novalidate>
+                {{ form.hidden_tag() }}
+                
+                <div class="mb-3">
+                    <label for="{{ form.username.id }}" class="form-label">Username</label>
+                    {{ form.username(class="form-control", placeholder="Enter username") }}
+                    <div class="invalid-feedback">
+                        Please enter your username.
+                    </div>
+                    {% if form.username.errors %}
+                        <div class="text-danger">
+                            {% for error in form.username.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="mb-4">
+                    <label for="{{ form.password.id }}" class="form-label">Password</label>
+                    {{ form.password(class="form-control", placeholder="Enter password") }}
+                    <div class="invalid-feedback">
+                        Please enter your password.
+                    </div>
+                    {% if form.password.errors %}
+                        <div class="text-danger">
+                            {% for error in form.password.errors %}
+                                {{ error }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <div class="d-grid">
+                    {{ form.submit(class="btn btn-primary btn-lg") }}
+                </div>
+            </form>
+        </div>
+        <div class="card-footer text-center">
+            <p class="mb-0">Don't have an account? <a href="{{ url_for('signup') }}" class="text-primary">Sign up here</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

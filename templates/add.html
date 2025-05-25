@@ -1,0 +1,91 @@
+{% extends 'layout.html' %}
+
+{% block title %}Add to Watchlist - Watchmate{% endblock %}
+
+{% block content %}
+<div class="container">
+    <a href="{{ url_for('dashboard') }}" class="back-home">
+        <i class="fas fa-arrow-left"></i> Back to Watchlist
+    </a>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0"><i class="fas fa-plus-circle me-2"></i>Add to Watchlist</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST" action="{{ url_for('add') }}" class="needs-validation" novalidate>
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.title.id }}" class="form-label">Title</label>
+                            {{ form.title(class="form-control", placeholder="Enter title") }}
+                            <div class="invalid-feedback">
+                                Please enter a title.
+                            </div>
+                            {% if form.title.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.title.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.image_url.id }}" class="form-label">Image URL or Path</label>
+                            {{ form.image_url(class="form-control", placeholder="Enter image URL or local path", id="image_url") }}
+                            <small class="form-text text-muted">
+                                You can provide either:
+                                <ul class="mt-1">
+                                    <li>A URL to an online image (e.g., https://example.com/image.jpg)</li>
+                                    <li>A local image path (e.g., img/naruto.jpg, static/img/movie.png)</li>
+                                </ul>
+                            </small>
+                            <div class="invalid-feedback">
+                                Please enter a valid image URL or path.
+                            </div>
+                            {% if form.image_url.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.image_url.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                            
+                            <!-- Image Preview -->
+                            <div class="mt-3">
+                                <label class="form-label">Image Preview:</label>
+                                <div class="preview-container border rounded p-2 d-flex justify-content-center">
+                                    <img id="image-preview" src="" alt="Image Preview" class="img-fluid" style="max-height: 200px; display: none;">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="{{ form.category.id }}" class="form-label">Category</label>
+                            {{ form.category(class="form-select") }}
+                            <div class="invalid-feedback">
+                                Please select a category.
+                            </div>
+                            {% if form.category.errors %}
+                                <div class="text-danger">
+                                    {% for error in form.category.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="d-grid gap-2">
+                            {{ form.submit(class="btn btn-primary btn-lg") }}
+                            <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
