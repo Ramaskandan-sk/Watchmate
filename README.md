@@ -21,7 +21,7 @@ A full-stack web application built with Flask and PostgreSQL/MySQL that allows u
 1. Make sure the PostgreSQL connection string is set in the environment variable `DATABASE_URL`
 2. Install dependencies:
    ```
-   pip install -r requirements.txt
+   pip install -r dependencies.txt
    ```
 3. Run the application:
    ```
@@ -39,7 +39,7 @@ A full-stack web application built with Flask and PostgreSQL/MySQL that allows u
    ```
 5. Install dependencies:
    ```
-   pip install -r requirements.txt
+   pip install -r dependencies.txt
    ```
 6. Run the application:
    ```
