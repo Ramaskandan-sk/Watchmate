@@ -7,4 +7,3 @@ WTForms
 Werkzeug
 gunicorn
 psycopg2-binary
-pymysql

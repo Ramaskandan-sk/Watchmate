@@ -1,6 +1,6 @@
 # Watchmate - Anime, Movie and Series Watchlist
 
-A full-stack web application built with Flask and PostgreSQL/MySQL that allows users to create and manage watchlists for Movies, Anime, and Series. The application includes user authentication, a dashboard to view watchlist items with filtering, functionality to add new items, and a user profile page.
+A full-stack web application built with Flask and Supabase (PostgreSQL) that allows users to create and manage watchlists for Movies, Anime, and Series. The application includes user authentication, a dashboard to view watchlist items with filtering, functionality to add new items, and a user profile page.
 
 ## Features
 
@@ -16,27 +16,12 @@ A full-stack web application built with Flask and PostgreSQL/MySQL that allows u
 
 ## Setup Instructions
 
-### Option 1: Using PostgreSQL (Replit or any cloud hosting)
+### Using Supabase (Recommended)
 
-1. Make sure the PostgreSQL connection string is set in the environment variable `DATABASE_URL`
-2. Install dependencies:
-   ```
-   pip install -r dependencies.txt
-   ```
-3. Run the application:
-   ```
-   python main.py
-   ```
-
-### Option 2: Using MySQL (XAMPP for local development)
-
-1. Install and start XAMPP
-2. Start Apache and MySQL services
-3. Create a database named `watchmate_db2`
-4. Update the database connection string in `app.py`:
-   ```python
-   app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/watchmate_db2'
-   ```
+1. Create a Supabase project at https://supabase.com
+2. Click the "Connect to Supabase" button in the top right to set up your connection
+3. The environment variables will be automatically configured
+4. The database migrations will be applied automatically
 5. Install dependencies:
    ```
    pip install -r dependencies.txt
@@ -45,6 +30,13 @@ A full-stack web application built with Flask and PostgreSQL/MySQL that allows u
    ```
    python main.py
    ```
+### Database Schema
+
+The application uses two main tables:
+- `users`: Stores user account information
+- `watchlist`: Stores watchlist items with foreign key to users
+
+All tables have Row Level Security (RLS) enabled for secure data access.
 
 ## Project Structure
 
@@ -52,6 +44,7 @@ A full-stack web application built with Flask and PostgreSQL/MySQL that allows u
 - `models.py`: Database models for User and WatchlistItem
 - `forms.py`: Form classes for user input
 - `main.py`: Entry point for the application
+- `supabase/migrations/`: Database migration files
 - `templates/`: HTML templates for rendering pages
 - `static/`: Static files (CSS, JavaScript, images)
 
@@ -74,7 +67,8 @@ To use local images:
 - Flask-SQLAlchemy: ORM for database interactions
 - Flask-WTF: Form handling and validation
 - Bootstrap: Frontend design
-- PostgreSQL/MySQL: Database
+- Supabase: Database and backend services
+- PostgreSQL: Database (via Supabase)
 - Werkzeug: Password hashing
 
 ## 📸 Project Preview

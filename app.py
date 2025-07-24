@@ -13,8 +13,12 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "dev_secret_key")
 
-# Configure SQLAlchemy with PostgreSQL
-app.config['SQLALCHEMY_DATABASE_URI'] ='mysql+pymysql://root:@localhost:3306/watchmate_db2'
+# Configure SQLAlchemy with Supabase PostgreSQL
+database_url = os.environ.get('DATABASE_URL')
+if not database_url:
+    raise ValueError("DATABASE_URL environment variable is required for Supabase connection")
+
+app.config['SQLALCHEMY_DATABASE_URI'] = database_url
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SQLALCHEMY_ENGINE_OPTIONS'] = {
     'pool_recycle': 300,
@@ -31,7 +35,7 @@ login_manager.login_view = 'login'
 
 @login_manager.user_loader
 def load_user(user_id):
-    return User.query.get(int(user_id))
+    return User.query.get(str(user_id))
 
 # Route for home page
 @app.route('/')
